@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dharm Sangam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff7e6;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #ff9800;
+      color: white;
+      padding: 20px;
+    }
+    section {
+      padding: 20px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    footer {
+      background: #333;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🕉️ Dharm Sangam</h1>
+  <p>Sanatan Dharm ka Gyaan – Padhne aur Sunne ke liye</p>
+</header>
+
+<section>
+  <h2>🔊 Sunna Mode</h2>
+  <button onclick="speakText()">Sunna Shuru Karein</button>
+
+  <h2>🎶 Bhajan</h2>
+  <p>Sabse pehle: Ganesh Ji Bhajan</p>
+  <audio controls>
+    <source src="ganesh-bhajan.mp3" type="audio/mpeg">
+    Aapka browser audio support nahi karta.
+  </audio>
+
+  <h2>📖 Granth</h2>
+  <p>Bhagavad Gita • Ramayan (Jald hi)</p>
+</section>
+
+<footer>
+  © 2025 Dharm Sangam | Seva aur Prastuti: Aapke Naam Se
+</footer>
+
+<script>
+function speakText() {
+  let msg = new SpeechSynthesisUtterance(
+    "Dharm Sangam mein aapka swagat hai. Yahan aap bhajan aur granth sun sakte hain."
+  );
+  msg.lang = "hi-IN";
+  speechSynthesis.speak(msg);
+}
+</script>
+
+</body>
+</html>
