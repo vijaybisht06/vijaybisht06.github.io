@@ -7,67 +7,60 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff7e6;
-      margin: 0;
-      padding: 0;
+      background: #fff8e1;
+      padding: 20px;
+      line-height: 1.8;
+    }
+    h1 {
+      color: #e65100;
       text-align: center;
     }
-    header {
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
       background: #ff9800;
       color: white;
-      padding: 20px;
-    }
-    section {
-      padding: 20px;
-    }
-    button {
-      padding: 15px 25px;
-      font-size: 18px;
-      margin: 10px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+      margin: 10px 5px;
     }
-    footer {
-      background: #333;
-      color: white;
-      padding: 10px;
-      font-size: 14px;
+    .text {
+      font-size: 20px;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>🕉️ Dharm Sangam</h1>
-  <p>Sanatan Dharm ka Gyaan – Padhne aur Sunne ke liye</p>
-</header>
+<h1>🕉️ श्री गणेश वंदना</h1>
 
-<section>
-  <h2>🔊 Sunna Mode</h2>
-  <button onclick="speakText()">Sunna Shuru Karein</button>
+<button onclick="speakText()">🔊 सुनना शुरू करें</button>
+<button onclick="stopText()">⏹️ रोकें</button>
 
-  <h2>🎶 Bhajan</h2>
-  <p>Sabse pehle: Ganesh Ji Bhajan</p>
-  <audio controls>
-    <source src="ganesh-bhajan.mp3" type="audio/mpeg">
-    Aapka browser audio support nahi karta.
-  </audio>
+<div class="text" id="content">
+  जय गणेश जय गणेश देवा।  
+  माता जाकी पार्वती पिता महादेवा॥  
 
-  <h2>📖 Granth</h2>
-  <p>Bhagavad Gita • Ramayan (Jald hi)</p>
-</section>
-
-<footer>
-  © 2025 Dharm Sangam | Seva aur Prastuti: Aapke Naam Se
-</footer>
+  एक दंत दयावंत चार भुजा धारी।  
+  माथे सिंदूर सोहे मूसे की सवारी॥
+</div>
 
 <script>
-function speakText() {
-  let msg = new SpeechSynthesisUtterance(
-    "Dharm Sangam mein aapka swagat hai. Yahan aap bhajan aur granth sun sakte hain."
-  );
-  msg.lang = "hi-IN";
-  speechSynthesis.speak(msg);
-}
+  let speech;
+
+  function speakText() {
+    const text = document.getElementById("content").innerText;
+    speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "hi-IN";
+    speech.rate = 0.85;
+    speech.pitch = 1;
+    window.speechSynthesis.speak(speech);
+  }
+
+  function stopText() {
+    window.speechSynthesis.cancel();
+  }
 </script>
 
 </body>
